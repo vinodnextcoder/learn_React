@@ -1,14 +1,28 @@
-// App.js 
-
-// import "./App.css"; 
+import React from 'react';
 
 const Form = () => {
+    // Define submit handler function
+    const handleSubmit = (event) => {
+        event.preventDefault(); // Prevent default form submission behavior
+        // Access form data
+        const formData = new FormData(event.target);
+        // Manipulate form data as needed
+        const firstName = formData.get('firstname');
+        const lastName = formData.get('lastname');
+        const email = formData.get('email');
+        const gender = formData.get('gender');
+        // Do something with the form data, like sending it to a server or performing validation
+        console.log('Form submitted with data:', { firstName, lastName, email, gender });
+        alert(`Form submmitted with First Name : ${firstName}`)
+    };
+
     return (
-        <div >
+        <div>
             <h1>Form in React</h1>
             <fieldset>
-                <form action="#" method="get">
-                    <label for="firstname">First Name*</label>
+                {/* Add onSubmit attribute to form */}
+                <form onSubmit={handleSubmit} action="#" method="get">
+                    <label htmlFor="firstname">First Name*</label>
                     <input
                         type="text"
                         name="firstname"
@@ -17,7 +31,7 @@ const Form = () => {
                         required
                     />
                     <br /><br />
-                    <label for="lastname">Last Name*</label>
+                    <label htmlFor="lastname">Last Name*</label>
                     <input
                         type="text"
                         name="lastname"
@@ -26,7 +40,7 @@ const Form = () => {
                         required
                     />
                     <br /><br />
-                    <label for="email">Enter Email* </label>
+                    <label htmlFor="email">Enter Email* </label>
                     <input
                         type="email"
                         name="email"
@@ -35,16 +49,13 @@ const Form = () => {
                         required
                     />
                     <br /><br />
-                    <label for="gender">Gender*</label>
+                    <label htmlFor="gender">Gender*</label>
                     <br />
-                    <input type="radio" name="gender"
-                        value="" id="male" />
+                    <input type="radio" name="gender" value="male" id="male" />
                     Male
-                    <input type="radio" name="gender"
-                        value="" id="female" />
+                    <input type="radio" name="gender" value="female" id="female" />
                     Female
-                    <input type="radio" name="gender"
-                        value="" id="other" />
+                    <input type="radio" name="gender" value="other" id="other" />
                     Other
                     <br /><br />
                     <label>Submit OR Reset</label>
