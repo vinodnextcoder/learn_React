@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import Navbar from "./Componensts/Navbar/nav";
 <script src="http://localhost:8097"></script>
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
